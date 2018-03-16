@@ -1,0 +1,11 @@
+<mat-form-field>
+  <textarea matInput [placeholder]="placeholder" matTextareaAutosize
+  [matAutosizeMinRows]="matAutosizeMinRows"
+  [matAutosizeMaxRows]="matAutosizeMaxRows"
+  [tabindex]="tabOrder"
+  [readonly]="readonly"
+  [disabled]="disabled"
+  #textArea
+  ></textarea>
+  <mat-hint *ngIf="!(textArea.touched||textArea.dirty)" align="end">{{hintText}}</mat-hint>
+</mat-form-field>

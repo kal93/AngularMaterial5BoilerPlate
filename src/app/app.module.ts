@@ -5,12 +5,12 @@ import { FormsModule , ReactiveFormsModule  } from '@angular/forms';
 
 
 import {  MatButtonModule, MatCheckboxModule , MatRadioModule , MatCardModule,
-          MatIconModule } from '@angular/material';
-
+          MatIconModule, MatInputModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SqCheckBoxComponent } from './sq-check-box/sq-check-box.component';
 import { RadioGroupComponent } from './radio-group/radio-group.component';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 
 
@@ -19,14 +19,15 @@ import { RadioGroupComponent } from './radio-group/radio-group.component';
     AppComponent,
     SqCheckBoxComponent,
     RadioGroupComponent,
+    TextAreaComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule, MatCheckboxModule,
-    MatRadioModule, MatCardModule,
-    FormsModule, ReactiveFormsModule 
+    MatRadioModule, MatCardModule, MatInputModule,
+    FormsModule, ReactiveFormsModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
