@@ -1,0 +1,44 @@
+
+<mat-checkbox [labelPosition] = "labelPosition" 
+              [color]="color"
+              [checked] ="checked"
+              [name]="name"
+              [disableRipple]="disableRipple"
+              [disabled]="disabled"
+              [indeterminate] ="indeterminate"
+              [id]="id"
+              [value]="value"
+              [required]="require"
+              (change)="onChange($event)"
+              (indeterminateChange)="onIndeterminateChange($event)">
+    <ng-content></ng-content>
+</mat-checkbox>
+
+
+
+<!-- <mat-checkbox [ngModel]="innerValue"
+              (ngModelChange)="modelChange($event)"
+              [checked]="innerValue"
+              [disabled]="disabled"
+              (change)="customOnChange($event)">
+
+<ng-content></ng-content>
+</mat-checkbox> -->
+
+
+<!-- <mat-checkbox [class.labelPosition] = "labelPosition" 
+              [attr.color]="color"
+              [class.checked] ="checked"
+              [name]="name"
+              [disableRipple]="disableRipple"
+              [disabled]="disabled"
+              [class.indeterminate] ="indeterminate"
+              [id]="id"
+              [value]="value"
+              [required]="require"
+              (change)="onChange($event)"
+              (indeterminateChange)="onIndeterminateChange($event)"
+
+>
+<ng-content></ng-content>
+</mat-checkbox> -->

@@ -3,11 +3,76 @@
   <h3>
     {{ title }}!
   </h3>
-  
 </div>
 
-<button mat-button>Click me!</button>
-<mat-checkbox>Check me!</mat-checkbox>
+<!-- <div style="text-align:center">
+
+  <app-sq-check-box labelPosition='before' 
+                    color='primary' 
+                    [(checked)]="SqChecked" 
+                    name="SqCheckbox" 
+                    (sqIndeterminateChange)="sqIndeterminateChange($event)"
+                    (sqChange)="sqChange($event)" 
+                    #maaz >SqCheckBox with 2-way binding
+  </app-sq-check-box>
+  <p>checked :{{maaz.checked}}</p>
+  <p>indeterminate: {{maaz.indeterminate}}</p>
+
+</div>
+
+<section style="text-align:center">
+  <form [formGroup]="testForm" (ngSubmit)="onSubmit(testForm)">
+
+    <app-sq-check-box formControlName="SqCheckbox"
+                      labelPosition='before' 
+                      color='warn'
+                      name="SqCheckbox"
+                      (sqChange)="sqChange($event)">SqCheckBox inside a form
+    </app-sq-check-box>
+    <br>
+    <button mat-button type="submit">Submit</button>
+  </form>
+  {{testForm.value | json}}
+</section> -->
+
+<h3 tsVerticalSpacing>
+  Component reference version:
+</h3>
+
+<app-radio-group
+  [options]="items$ | async"
+  (change)="selected($event)"
+  #group1="SqRadioGroup"
+></app-radio-group>
+
+<br/>
+Selected value: {{ group1.value }}
 
 
+<h3 >
+  Reactive form version:
+</h3>
 
+<form [formGroup]="myForm" novalidate>
+  <div>
+    <app-radio-group
+      [formControl]="myForm.get('myRadioGroup')"
+      [options]="items2$ | async"
+    ></app-radio-group>
+  </div>
+
+  <button (click)="submit(myForm.value)">Submit</button>
+
+</form>
+
+<h3>Template Form version</h3>
+            <section>
+                <form #form="ngForm" [formGroup]="templateForm">
+                    <app-radio-group
+                    formControlName="TemplateRadioGroup"
+      [options]="items3$ | async"
+    ></app-radio-group>
+                </form>
+                <br />
+                {{ form.value | json }}
+            </section>
