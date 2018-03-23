@@ -13,13 +13,17 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatRadioChange, MatRadioButton } from '@angular/material';
 
 import { RadioConfig } from './radio.config';
-import { ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { ThemePalette } from '@angular/material';
 
 /**
  * Expose the MatRadioChange event as TsRadioChange
  */
-export class TsRadioChange extends MatRadioChange {};
+export class TsRadioChange extends MatRadioChange {}
+
+export function noop() {
+  return;
+}
 
 
 /**
@@ -36,45 +40,54 @@ export const SQ_RADIO_CONTROL_VALUE_ACCESSOR: any = {
   selector: 'app-radio-group',
   templateUrl: './radio-group.component.html',
   styleUrls: ['./radio-group.component.css'],
-  exportAs: 'SqRadioGroup',
+  // exportAs: 'SqRadioGroup',
   providers: [SQ_RADIO_CONTROL_VALUE_ACCESSOR],
 })
+
+
 export class RadioGroupComponent implements OnInit, ControlValueAccessor {
 
   /**
-   * Accept an array of radio options in the {@link TsRadioOption} format
+   * Accept an array of radio options in the RadioConfig[] format
    */
   @Input()
   public options: RadioConfig[];
 
   /**
-   * Define the theme. {@link TsStyleThemeTypes}
+   * Define the theme.
    */
   @Input()
-  public theme: ThemePalette = 'primary';
+  public color: string ;
+
+  @Input()
+  disableRipple: boolean;
+
+  @Input()
+  labelPosition: string ;
+
+  @Input()
+  public formControl: FormControl;
 
   /**
    * Emit event when a selection occurs
    */
   @Output()
-  public change: EventEmitter<TsRadioChange> = new EventEmitter();
+  public sqChange: EventEmitter<MatRadioChange> = new EventEmitter();
 
-  protected innerValue: any = '';
+   innerValue: any = '';
 
-  // value:any;
+   onChangeCallback: (_: any) => void = noop;
 
-  protected onChangeCallback: (_: any) => void ;
-
-  protected onTouchedCallback: () => void ;
+   onTouchedCallback: () => void ;
 
   public get value(): any {
     return this.innerValue;
-  };
+  }
 
   public set value(v: any) {
     if (v !== this.innerValue) {
       this.innerValue = v;
-      this.onChangeCallback(v);
+     this.onChangeCallback(v);
     }
   }
 
@@ -94,9 +107,9 @@ export class RadioGroupComponent implements OnInit, ControlValueAccessor {
       this.value = initialSelection;
 
       // istanbul ignore else
-      // if (this.formControl) {
-      //   this.formControl.setValue(initialSelection);
-      // }
+      if (this.formControl) {
+        this.formControl.setValue(initialSelection);
+      }
 
       // Tell Angular that we have updated the component internally
       this.changeDetectorRef.markForCheck();
@@ -125,8 +138,6 @@ export class RadioGroupComponent implements OnInit, ControlValueAccessor {
    *
    * If multiple items are marked as 'checked' by default, the first on found will win.
    *
-   * @param options - The array of options
-   * @return The selected value
    */
   private defaultSelection(options: RadioConfig[]): string | null {
     const found = options.filter((v: RadioConfig) => {

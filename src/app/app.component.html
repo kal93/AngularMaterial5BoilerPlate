@@ -34,54 +34,130 @@
   </form>
   {{testForm.value | json}}
 </section> -->
-
-<!-- <h3 tsVerticalSpacing>
+<!-- <mat-card>
+<h3>
   Component reference version:
 </h3>
 
 <app-radio-group
+color="primary" disableRipple 
+labelPosition="before"
   [options]="items$ | async"
-  (change)="selected($event)"
-  #group1="SqRadioGroup"
+  (sqChange)="selected($event)"
+  #group1
 ></app-radio-group>
-
+<br/>
 <br/>
 Selected value: {{ group1.value }}
-
-
-<h3 >
+</mat-card>
+<br/>
+<mat-card>
+<h3>
   Reactive form version:
 </h3>
 
-<form [formGroup]="myForm" novalidate>
+<form [formGroup]="myForm" >
   <div>
-    <app-radio-group
+    <app-radio-group 
       [formControl]="myForm.get('myRadioGroup')"
       [options]="items2$ | async"
     ></app-radio-group>
   </div>
-
-  <button (click)="submit(myForm.value)">Submit</button>
+  <br/>
+  <button mat-raised-button color='primary' (click)="submit(myForm.value)">Submit</button>
 
 </form>
+</mat-card>
+<br/>
 
-<h3>Template Form version</h3>
+<mat-card>
+  <h3>
+    Reactive form version with default selection from FormBuilder
+  </h3>
+  
+  <form [formGroup]="countryForm" >
+    <div>
+      <app-radio-group 
+        formControlName="countriesRadioGroup"
+        [options]="countries | async"
+      ></app-radio-group>
+    </div>
+    <br/>
+    <button mat-raised-button color='primary' (click)="countryFormSubmit(countryForm.value)">Submit</button>
+  
+  </form>
+  </mat-card>
+  <br/>
+<mat-card>
+ <h3>Template Form version</h3>
             <section>
                 <form #form="ngForm" [formGroup]="templateForm">
-                    <app-radio-group
+                    <app-radio-group color="warn" labelPosition="before"
                     formControlName="TemplateRadioGroup"
       [options]="items3$ | async"
     ></app-radio-group>
                 </form>
                 <br />
                 {{ form.value | json }}
-            </section> -->
-
-
+            </section>
+</mat-card>
+<br/> -->
+<!-- <mat-card>
+  <h3>Template Form version with default selection from formGroup</h3>
+             <section>
+                 <form #form="ngForm" [formGroup]="seasonsForm">
+                     <app-radio-group color="primary" labelPosition="after"
+                     formControlName="seasonsRadioGroup"
+       [options]="seasons | async"
+     ></app-radio-group>
+                 </form>
+                 <br />
+                 {{ form.value | json }}
+             </section>
+ </mat-card> -->
 
 <app-text-area placeholder="Maaz"
               matAutosizeMinRows="2"
               matAutosizeMaxRows= "3"
-              hintText="Hana"
-              
+              [hintText]="title"
+              required="true"
+              [(ngModel)]="title"
+              tabOrder="1"
  >Loading app-text-area</app-text-area>
+<br/>
+<br/>
+
+<app-text-area placeholder="Maaz"
+matAutosizeMinRows="2"
+matAutosizeMaxRows= "3"
+[hintText]="title"
+required="true"
+[(ngModel)]="title"
+tabOrder="4"
+
+>Loading app-text-area</app-text-area>
+<pre>{{test | json}}</pre>
+<br/>
+<br/>
+
+<app-text-area placeholder="Maaz"
+              matAutosizeMinRows="3"
+              matAutosizeMaxRows= "6"
+              [hintText]="title"
+              required="true"
+              [(ngModel)]="title"
+              tabOrder="3"
+              #test
+ >Loading app-text-area</app-text-area>
+ <pre>{{test | json}}</pre>
+ <br/>
+ <br/>
+
+<app-text-area placeholder="Maaz"
+matAutosizeMinRows="2"
+matAutosizeMaxRows= "3"
+[hintText]="title"
+required="true"
+[(ngModel)]="title"
+tabOrder="2"
+>Loading app-text-area</app-text-area>

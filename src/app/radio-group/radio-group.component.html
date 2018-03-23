@@ -1,19 +1,22 @@
 <mat-radio-group
   [(ngModel)]="value"
+  
 >
   <ng-container *ngFor="let option of options">
 
-    <mat-radio-button
+    <mat-radio-button 
+      [color]="color"
+      [disableRipple]="disableRipple"
+      [labelPosition]="labelPosition"
       [value]="option.value"
       [id]="option.value"
       [disabled]="option.disabled"
       [checked]="option.checked"
       [name]="option.name"
       [required]="option.required"
-      (change)="change.emit($event)"
+      (change)="sqChange.emit($event)"
     >
       {{ option.displayValue }}
-      {{ option.checked }}
     </mat-radio-button>
 
   </ng-container>
