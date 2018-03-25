@@ -116,14 +116,15 @@ Selected value: {{ group1.value }}
              </section>
  </mat-card> -->
 
+ <mat-card>
 <app-text-area placeholder="Maaz"
               matAutosizeMinRows="2"
               matAutosizeMaxRows= "3"
-              [hintText]="title"
+              hintText="Hana"
               required="true"
-              [(ngModel)]="title"
               tabOrder="1"
  >Loading app-text-area</app-text-area>
+ </mat-card>
 <br/>
 <br/>
 
@@ -133,8 +134,6 @@ Selected value: {{ group1.value }}
     <section>
       <app-text-area formControlName= "commentBox"
                      placeholder="Comment"
-                     matAutosizeMinRows="2"
-                     matAutosizeMaxRows ="4"
       ></app-text-area>
     </section>
     <button mat-raised-button (click)="commentFormSubmit(commentForm.value)" >Submit</button>
