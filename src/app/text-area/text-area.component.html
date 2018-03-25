@@ -4,9 +4,10 @@
   [matAutosizeMaxRows]="matAutosizeMaxRows"
   [tabindex] = "tabOrder"
   [readonly] = "readonly"
+  [(ngModel)]="inputValue"
   [disabled] = "disabled"
   [required] = "required"
-
+  #textboxModel="ngModel"
   ></textarea>
   <!-- <mat-hint *ngIf="!(validationMessage&&(textAreaModel.touched||textAreaModel.dirty))" align="start">{{hintLabel}}</mat-hint> -->
 </mat-form-field>

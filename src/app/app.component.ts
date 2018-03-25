@@ -199,5 +199,19 @@ export class AppComponent {
 //     console.log('DEMO: form submission: ', v);
 //   }
 
+// text-area example starts below -----------------
+    commentForm : FormGroup;
+    
+   // commentBox:FormControl;
 
+    constructor(private formBuilder:FormBuilder) {
+      this.commentForm = this.formBuilder.group( {
+        commentBox: new FormControl(),}
+      );
+
+    }
+
+    commentFormSubmit(v:any){
+      console.log('comment Form submitted', v);
+    }
 }

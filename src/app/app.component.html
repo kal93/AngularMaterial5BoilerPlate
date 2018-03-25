@@ -127,37 +127,17 @@ Selected value: {{ group1.value }}
 <br/>
 <br/>
 
-<app-text-area placeholder="Maaz"
-matAutosizeMinRows="2"
-matAutosizeMaxRows= "3"
-[hintText]="title"
-required="true"
-[(ngModel)]="title"
-tabOrder="4"
-
->Loading app-text-area</app-text-area>
-<pre>{{test | json}}</pre>
-<br/>
-<br/>
-
-<app-text-area placeholder="Maaz"
-              matAutosizeMinRows="3"
-              matAutosizeMaxRows= "6"
-              [hintText]="title"
-              required="true"
-              [(ngModel)]="title"
-              tabOrder="3"
-              #test
- >Loading app-text-area</app-text-area>
- <pre>{{test | json}}</pre>
- <br/>
- <br/>
-
-<app-text-area placeholder="Maaz"
-matAutosizeMinRows="2"
-matAutosizeMaxRows= "3"
-[hintText]="title"
-required="true"
-[(ngModel)]="title"
-tabOrder="2"
->Loading app-text-area</app-text-area>
+<mat-card>
+  <h5>Reactive form </h5>
+  <form [formGroup]="commentForm">
+    <section>
+      <app-text-area formControlName= "commentBox"
+                     placeholder="Comment"
+                     matAutosizeMinRows="2"
+                     matAutosizeMaxRows ="4"
+      ></app-text-area>
+    </section>
+    <button mat-raised-button (click)="commentFormSubmit(commentForm.value)" >Submit</button>
+    {{commentForm.value | json}}
+  </form>
+</mat-card>
