@@ -1,0 +1,24 @@
+<!-- <mat-tab-group>
+  <mat-tab *ngFor= "let tab of tabs" 
+  [label] = "tab.tabLabel"
+  [isActive] = "tab.isActive"
+  [disabled] = "tab.disabled"
+  [position] = "tab.position"
+  ><div>
+    <ng-content></ng-content>
+  </div>
+  </mat-tab>
+</mat-tab-group> -->
+
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+     *ngFor="let tab of tabs"
+     [routerLink]="tab.path"
+     routerLinkActive 
+     #rla="routerLinkActive"
+     [active]="rla.isActive"
+     [disabled]="tab.disabled"
+     >
+    {{tab.tabLabel}}<mat-icon *ngIf= "tab.icon">{{tab.icon}}</mat-icon>
+  </a>
+</nav>

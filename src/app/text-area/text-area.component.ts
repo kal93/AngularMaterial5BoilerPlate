@@ -16,7 +16,7 @@ export const SQ_TEXT_AREA_CONTROL_VALUE_ACCESSOR: any = {
   styleUrls: ['./text-area.component.css'],
   providers: [SQ_TEXT_AREA_CONTROL_VALUE_ACCESSOR]
 })
-export class TextAreaComponent {
+export class TextAreaComponent implements ControlValueAccessor {
 
   @Input() placeholder: string;
 

@@ -28,7 +28,7 @@ export class SqCheckBoxComponent {
  @Input() disabled: boolean;
  @Input() indeterminate: boolean;
  @Input() id: string;
- @Input() required: boolean;
+ @Input() required?: boolean;
 
  @Output() public sqChange: EventEmitter <boolean> = new EventEmitter;
  @Output() sqIndeterminateChange: EventEmitter<boolean> = new EventEmitter();
