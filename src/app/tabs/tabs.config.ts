@@ -26,5 +26,6 @@ export interface TabsConfig {
      */
     icon?: string;
 
+    isVisible?: boolean;
 
 }

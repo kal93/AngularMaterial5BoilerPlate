@@ -24,6 +24,7 @@ export class AppComponent {
     this.tabList = [
       {
         tabLabel : 'Maaz',
+        path : '',
         disabled : true
 
       },
@@ -31,21 +32,21 @@ export class AppComponent {
         tabLabel: 'Hana',
         path : 'hana',
         icon : 'face',
-        isActive : true
+        isVisible : false
 
       },
       {
         tabLabel: 'Kasumi',
         position : 3,
         path: 'kasumi',
-        icon: 'thumb_up',
+        icon: 'flight_land',
       },
       {
         tabLabel: 'Kasumi 2',
         position : 4,
         path: 'kasumi2',
         icon: 'thumb_down'
-      }
+      },
     ];
   }
 }

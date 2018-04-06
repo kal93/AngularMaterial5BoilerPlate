@@ -14,11 +14,12 @@
   <a mat-tab-link
      *ngFor="let tab of tabs"
      [routerLink]="tab.path"
-     routerLinkActive 
+     routerLinkActive
      #rla="routerLinkActive"
      [active]="rla.isActive"
      [disabled]="tab.disabled"
+     [class.sq-hide]="tab.isVisible ===false"
      >
-    {{tab.tabLabel}}<mat-icon *ngIf= "tab.icon">{{tab.icon}}</mat-icon>
+    {{tab.tabLabel}}<i class="material-icons">{{tab.icon}}</i>
   </a>
 </nav>
