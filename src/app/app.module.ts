@@ -5,7 +5,7 @@ import { FormsModule , ReactiveFormsModule  } from '@angular/forms';
 import { RouterModule } from '@angular/Router';
 
 import {  MatButtonModule, MatCheckboxModule , MatRadioModule , MatCardModule,
-          MatIconModule, MatInputModule, MatTabsModule } from '@angular/material';
+          MatIconModule, MatInputModule, MatTabsModule, } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SqCheckBoxComponent } from './sq-check-box/sq-check-box.component';

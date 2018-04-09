@@ -5,8 +5,64 @@
   </h3>
 </div>
 
-<mat-card>
-<app-tabs [tabs]="tabList">
+ <!-- <mat-card>
+<app-tabs [navLinks]="navLinks">
 </app-tabs>
 <router-outlet></router-outlet>
-</mat-card>
+</mat-card>  -->
+
+<br/> 
+<mat-card>
+
+<app-tabs [tabList]="tabs" 
+    [selectedIndex] = "selectedIndex"
+    (sqSelectedIndexChange) = "selectedIndexChange($event)"
+    (sqSelectedTabChange) = "tabChange($event)"
+    (sqFocusChange) = "focusChange($event)"
+    dynamicHeight= "true"
+    disableRipple ="true"
+>
+  <ng-template #Tab1>
+    <div>Tab1</div>
+  </ng-template>
+  <ng-template #Tab2>
+    <div>Tab2</div>
+  </ng-template>
+  <ng-template #Tab3>
+      <div>Tab3</div>
+    </ng-template>
+    <ng-template #Tab4>
+        <div>Tab4</div>
+      </ng-template>
+  </app-tabs>
+
+  </mat-card>
+
+
+  <app-tabs [tabsDetail]="tabList" 
+[defaultTab]="defaultTab" disabled = "true"
+(selectTab)="receiveSelected($event)"></app-tabs>
+
+
+<ng-template #Maaz> 
+  <div >
+    <h3>Maaz</h3>
+   
+  </div>
+</ng-template>
+
+<ng-template #Hana>
+    <div >
+      <h3>Hana</h3>
+     
+    </div>
+  </ng-template>
+  
+
+<ng-template #Maria>
+
+<div>
+        <h3>Maria</h3>
+</div>
+
+</ng-template>
