@@ -69,6 +69,7 @@ export class AppComponent implements OnInit {
       {
         label: 'Tab 3',
         TabView: this.Tab3,
+        position: 1
       },
       {
         label: 'Tab 4',
