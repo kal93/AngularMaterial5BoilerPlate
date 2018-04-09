@@ -1,6 +1,6 @@
 import { Component, Input , OnInit, Output, EventEmitter } from '@angular/core';
 import { TabsConfig, TabsNavBarConfig } from './tabs.config';
-import { ThemePalette, MatTabChangeEvent } from '@angular/material';
+import { ThemePalette, MatTabChangeEvent, MatTabHeaderPosition } from '@angular/material';
 
 @Component({
   selector: 'app-tabs',
@@ -18,11 +18,13 @@ export class TabsComponent  {
   @Input()
   disableRipple: boolean;
 
+  // verify
   @Input()
   dynamicHeight: boolean;
 
+  // verify
   @Input()
-  headerPostion: boolean;
+  headerPostion: MatTabHeaderPosition;
 
   @Input()
   selectedIndex: number | null;
