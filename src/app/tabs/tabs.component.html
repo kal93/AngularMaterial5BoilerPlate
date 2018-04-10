@@ -1,3 +1,4 @@
+<ng-container *ngIf="tabList">
 <mat-tab-group [backgroundColor] = "backgroundColor"
                [color] = "color"
                [disableRipple] ="disableRipple"
@@ -12,8 +13,7 @@
   [disabled] = "tab.disabled"
   [label] = "tab.label"
   [isActive] ="tab.isActive"
-  [origin] = "tab.origin"
-  [position] = "tab.position"
+
   >
   <ng-template *ngIf="tab.icon" mat-tab-label>
       <mat-icon>{{tab.icon}}</mat-icon>
@@ -22,6 +22,7 @@
 
   </mat-tab>
 </mat-tab-group>
+</ng-container>
 
 <!-- Use tabs as navigation only if navLinks are defined -->
 <ng-container *ngIf= "navLinks">
@@ -33,7 +34,8 @@
      #rla="routerLinkActive"
      [active]="rla.isActive"
      >
-    {{nav.tabLabel}}<i class="material-icons">{{nav.icon}}</i>
+    {{nav.tabLabel}}<mat-icon *ngIf="nav.icon" class="material icon">{{nav.icon}}</mat-icon>
+  
   </a>
 </nav>
 <ng-container>

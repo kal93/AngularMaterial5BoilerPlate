@@ -61,6 +61,7 @@ export class AppComponent implements OnInit {
       {
         label: 'Tab 1',
         TabView: this.Tab1,
+        origin: 2
       },
       {
         label: 'Tab 2',
@@ -92,10 +93,33 @@ export class AppComponent implements OnInit {
       TabView: this.Tab4,
       }
     ];
+
+    this.navLinks = [
+      {
+        tabLabel : 'Maaz',
+      },
+      {
+        tabLabel: 'Hana',
+        path : 'hana',
+        icon : 'face',
+
+      },
+      {
+        tabLabel: 'Kasumi',
+        path: 'kasumi',
+        icon: 'thumb_up',
+      },
+      {
+        tabLabel: 'Kasumi 2',
+        path: 'kasumi2',
+        icon: 'thumb_down'
+      }
+    ];
 }
 
   selectedIndexChange(event) {
       console.log(`${event} - selectedIndexChange Event`);
+      console.log(this.tabs[0].isActive);
     }
   tabChange(event: MatTabChangeEvent) {
       console.log(`index:${event.index} tab:${event.tab.textLabel} - Tab Change Event`);

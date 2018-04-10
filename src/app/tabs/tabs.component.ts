@@ -24,7 +24,9 @@ export class TabsComponent  {
   @Input()
   disableRipple: boolean;
 
-  // verify
+ /**
+  * Whether the tab group should grow to the size of the active tab.Resizes the tab to fit the longer labels.
+  */
   @Input()
   dynamicHeight: boolean;
 
@@ -33,7 +35,7 @@ export class TabsComponent  {
    */
   @Input()
   headerPosition: MatTabHeaderPosition;
-  
+
   /**
    * Sets the active tab.
    */
@@ -61,7 +63,7 @@ export class TabsComponent  {
   @Output()
   sqFocusChange: EventEmitter<MatTabChangeEvent> = new EventEmitter;
 
-  selectedIndexChange(event) {
+  selectedIndexChange(event: number) {
     this.sqSelectedIndexChange.emit(event);
   }
 

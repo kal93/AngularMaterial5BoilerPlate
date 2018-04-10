@@ -21,7 +21,7 @@ export interface TabsConfig {
     /**
      *  Defines the template/view for tabs
      */
-    TabView?: any;
+    TabView?: TemplateRef<any>;
     /**
      * Specifies the MatIcon class for the icon to display
      */

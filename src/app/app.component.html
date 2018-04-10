@@ -5,15 +5,16 @@
   </h3>
 </div>
 
- <!-- <mat-card>
+ <mat-card>
+   <h4>Navigation with routes</h4>
 <app-tabs [navLinks]="navLinks">
 </app-tabs>
 <router-outlet></router-outlet>
-</mat-card>  -->
+</mat-card> 
 
 <br/> 
 <mat-card>
-
+    <h4>Multiple views in a single route</h4>
 <app-tabs [tabList]="tabs" 
     [selectedIndex] = "selectedIndex"
     (sqSelectedIndexChange) = "selectedIndexChange($event)"
@@ -30,7 +31,7 @@
     <div>Tab2</div>
   </ng-template>
   <ng-template #Tab3>
-      <div>Tab3</div>
+      <div>Tab3..</div>
     </ng-template>
     <ng-template #Tab4>
         <div>Tab4</div>
@@ -45,7 +46,7 @@
 (selectTab)="receiveSelected($event)"></app-tabs>
 
 
-<ng-template #Maaz> 
+<!-- <ng-template #Maaz> 
   <div >
     <h3>Maaz</h3>
    
@@ -66,4 +67,4 @@
         <h3>Maria</h3>
 </div>
 
-</ng-template>
+</ng-template> -->
