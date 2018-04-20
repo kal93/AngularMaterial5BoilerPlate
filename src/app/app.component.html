@@ -5,33 +5,77 @@
   </h3>
 </div>
 
- <mat-card>
+ <!-- <mat-card>
    <h4>Navigation with routes</h4>
 <app-tabs [navLinks]="navLinks">
 </app-tabs>
 <router-outlet></router-outlet>
-</mat-card> 
+</mat-card>  -->
 
 <br/> 
-<mat-card>
+<mat-card >
     <h4>Multiple views in a single route</h4>
 <app-tabs [tabList]="tabs" 
     [selectedIndex] = "selectedIndex"
     (sqSelectedIndexChange) = "selectedIndexChange($event)"
     (sqSelectedTabChange) = "tabChange($event)"
     (sqFocusChange) = "focusChange($event)"
-    dynamicHeight= "true"
-    disableRipple ="true"
+    dynamicHeight ="false"
     headerPosition ="above"
 >
   <ng-template #Tab1>
-    <div>Tab1</div>
+    <div> Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.  Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.  Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels.
+      Tabs organize content into separate views where only one view can be visible at a time. 
+      Each tab's label is shown in the tab header and the active tab's label is designated with the 
+      animated ink bar. When the list of tab labels exceeds the width of the header, pagination 
+      controls appear to let the user scroll left and right across the labels. </div>
   </ng-template>
   <ng-template #Tab2>
     <div>Tab2</div>
   </ng-template>
   <ng-template #Tab3>
-      <div>Tab3..</div>
+      <div>Tab3</div>
     </ng-template>
     <ng-template #Tab4>
         <div>Tab4</div>
@@ -41,9 +85,9 @@
   </mat-card>
 
 
-  <app-tabs [tabsDetail]="tabList" 
+  <!-- <app-tabs [tabsDetail]="tabList" 
 [defaultTab]="defaultTab" disabled = "true"
-(selectTab)="receiveSelected($event)"></app-tabs>
+(selectTab)="receiveSelected($event)"></app-tabs> -->
 
 
 <!-- <ng-template #Maaz> 

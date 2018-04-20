@@ -3,3 +3,7 @@
 .sq-hide {
     display: none !important;
 }
+
+.sq-tab-group {
+    height: auto;
+}

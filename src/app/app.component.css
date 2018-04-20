@@ -12,3 +12,11 @@
   .example-margin {
     margin: 0 10px;
   }
+
+  .card {
+    height:200px ;
+  }
+
+  ::ng-deep .sq-tab-group {
+    height: 400px !important;
+  }

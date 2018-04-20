@@ -53,15 +53,15 @@ export class AppComponent implements OnInit {
 
   // Maria: TemplateRef<any>;
 
-  selectedIndex = '2';
+
   ngOnInit () {
 
     // single route tabs
     this.tabs = [
       {
-        label: 'Tab 1',
+        label: 'Maaz',
         TabView: this.Tab1,
-        origin: 2
+
       },
       {
         label: 'Tab 2',
@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
       {
         label: 'Tab 3',
         TabView: this.Tab3,
-        position: 1
+
       },
       {
         label: 'Tab 4',
