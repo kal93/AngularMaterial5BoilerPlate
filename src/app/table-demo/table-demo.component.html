@@ -1,0 +1,7 @@
+<sq-table [rowData]="rowData"
+          [enableCheckbox]="true"
+          [allowMultiSelect]="true"
+          (getSelectedRows)="onNotifySelected($event)"
+          [sqPaginationConfig]="tablePaginationSettings"
+          [sqConfig]="tableSettings">
+</sq-table>   

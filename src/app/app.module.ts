@@ -7,11 +7,15 @@ import { RouterModule } from '@angular/Router';
 import {  MatButtonModule, MatCheckboxModule , MatRadioModule , MatCardModule,
           MatIconModule, MatInputModule, MatTabsModule, } from '@angular/material';
 
+import { TableModule } from './table/table.module';
+
 import { AppComponent } from './app.component';
 import { SqCheckBoxComponent } from './sq-check-box/sq-check-box.component';
 import { RadioGroupComponent } from './radio-group/radio-group.component';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { TableComponent } from './table/table.component';
+import { TableDemoComponent } from './table-demo/table-demo.component';
 
 const routes = [
   {
@@ -35,6 +39,8 @@ const routes = [
     RadioGroupComponent,
     TextAreaComponent,
     TabsComponent,
+    // TableComponent,
+    TableDemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,8 @@ const routes = [
     MatIconModule,
     MatButtonModule, MatCheckboxModule,
     MatRadioModule, MatCardModule, MatInputModule, MatTabsModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    TableModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
