@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/Router';
 import {HttpClientModule} from '@angular/common/http';
 
 import {  MatButtonModule, MatCheckboxModule , MatRadioModule , MatCardModule,
-          MatIconModule, MatInputModule, MatTabsModule, } from '@angular/material';
+          MatIconModule, MatInputModule, MatTabsModule, MatSlideToggleModule } from '@angular/material';
 
 import { TableModule } from './table/table.module';
 
@@ -52,7 +52,7 @@ const routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     MatIconModule,
-    MatButtonModule, MatCheckboxModule,
+    MatButtonModule, MatCheckboxModule, MatSlideToggleModule,
     MatRadioModule, MatCardModule, MatInputModule, MatTabsModule, HttpClientModule,
     FormsModule, ReactiveFormsModule,
     TableModule , SelectModule

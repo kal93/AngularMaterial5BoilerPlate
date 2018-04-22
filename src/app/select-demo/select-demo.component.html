@@ -10,6 +10,9 @@
                  [sqConfig]="sqSelectConfig">
       </sq-select>
   </form>
+  <!-- <button mat-raised-button color="accent" (click)="swtichDataSource()">Switch DataSoruce</button> -->
+  <mat-slide-toggle  (change)="swtichDataSource($event)">Toggle DataSource</mat-slide-toggle>
+  <br/>
   Reactive Form value: <pre> {{ reactiveForm.value | json}}</pre>
 </mat-card>
 

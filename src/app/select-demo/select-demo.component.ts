@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgModel } from '@angular/forms';
+import { MatSlideToggleChange } from '@angular/material';
 import { SelectSettingsModel } from '../select/select-settings.model';
 
 import { HttpClient } from '@angular/common/http';
@@ -97,5 +98,22 @@ export class SelectDemoComponent implements OnInit {
     selected: string = 'GJJ';
     ngDoCheck() {
         this.hidValidationMessage = this.hidModel.hasError('invalidValue') ? 'Restricted Option!!' : this.hidModel.hasError('required') ? 'This is Required' : '';
+    }
+
+    swtichDataSource($event:MatSlideToggleChange) {
+        if( $event.checked ) {
+          console.log($event.checked);
+      this.getData(this.url).subscribe( (resp:any) => {
+        this.sqSelectConfig.dataSource = resp;
+      });
+    }
+      else {
+        console.log($event.checked +' elseeeeeeeeeeeeeee');
+        this.getData(this.url2)
+            .subscribe( (data) => {
+              this.sqSelectConfig.dataSource = data;
+              console.log(this.sqSelectConfig.dataSource);
+            });
+      }
     }
 }
