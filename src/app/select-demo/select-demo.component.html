@@ -1,0 +1,59 @@
+<mat-card>
+  <h3>Reactive Form</h3>
+  <form [formGroup]="reactiveForm" class="align-vertical">
+      <sq-select placeholder="Select theme"
+                 disabled="false"
+                 required="true"
+                 formControlName="theme"
+                 [enableReset]="true"
+                 [tabOrder]="1"
+                 [sqConfig]="sqSelectConfig">
+      </sq-select>
+  </form>
+  Reactive Form value: <pre> {{ reactiveForm.value | json}}</pre>
+</mat-card>
+
+<mat-card>
+  <h3>Template Driven Form</h3>
+  <form #registerForm="ngForm" class="align-vertical">
+      <sq-select name="select"
+                 placeholder="Select HID"
+                 required="true"
+                 disabled="false"
+                 [tabOrder]="4"
+                 [enableMultiSelect]="true"
+                 [sqConfig]="sqSelectConfigForTDF"
+                 [(ngModel)]="selectedValue">
+      </sq-select>
+  </form>
+  Template Driven Form value: <pre> {{ registerForm.value | json }}</pre>
+</mat-card>
+<mat-card>
+  <h3>NgModel</h3>
+  <div>
+      <sq-select name="select"
+                 placeholder="Select Hospital"
+                 required="true"
+                 disabled="false"
+                 [tabOrder]="3"
+                 [sqConfig]="sqSelectConfigForNgModel"
+                 [(ngModel)]="selected"
+                 [enableReset]="true"
+                 restrictKeywordValidator="KOH"
+                 #hidModel="ngModel"
+                 hintLabel="HID"
+                 [validationMessage]="hidValidationMessage">
+      </sq-select>
+  </div>
+  Hospital: {{selected}}
+</mat-card>
+<mat-card>
+  <h3>FormControl</h3>
+  <div>
+      <sq-select placeholder="Select Country"
+                 [formControl]="country"
+                 [tabOrder]="2"
+                 [sqConfig]="sqSelectConfigForCountry"></sq-select>
+  </div>
+  Country: {{country.value}}
+</mat-card>

@@ -1,0 +1,18 @@
+<mat-form-field>
+  <mat-select [placeholder]="placeholder"
+              [required]="required"
+              [disabled]="disabled"
+              [(ngModel)]="selectedValue"
+              [multiple]="enableMultiSelect"
+              [tabIndex]="tabOrder"
+              #selectModel="ngModel">
+      <mat-option *ngIf="enableReset && enableMultiSelect !== true">None</mat-option>
+      <mat-option *ngFor="let data of sqConfig.dataSource" [value]="data.value">
+          {{ data.viewValue }}
+      </mat-option>
+  </mat-select>
+  <mat-hint *ngIf="!(validationMessage&&(selectModel.touched||selectModel.dirty))" align="start">{{hintLabel}}</mat-hint>
+  <!-- <sq-error *ngIf="validationMessage" [control]="selectModel"
+            [validationMessage]="validationMessage">
+  </sq-error> -->
+</mat-form-field>

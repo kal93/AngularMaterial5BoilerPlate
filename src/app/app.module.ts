@@ -3,6 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule , ReactiveFormsModule  } from '@angular/forms';
 import { RouterModule } from '@angular/Router';
+import {HttpClientModule} from '@angular/common/http';
 
 import {  MatButtonModule, MatCheckboxModule , MatRadioModule , MatCardModule,
           MatIconModule, MatInputModule, MatTabsModule, } from '@angular/material';
@@ -16,6 +17,8 @@ import { TextAreaComponent } from './text-area/text-area.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TableComponent } from './table/table.component';
 import { TableDemoComponent } from './table-demo/table-demo.component';
+import { SelectModule } from './select/select.module';
+import { SelectDemoComponent } from './select-demo/select-demo.component';
 
 const routes = [
   {
@@ -41,6 +44,8 @@ const routes = [
     TabsComponent,
     // TableComponent,
     TableDemoComponent,
+    
+    SelectDemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +53,9 @@ const routes = [
     RouterModule.forRoot(routes),
     MatIconModule,
     MatButtonModule, MatCheckboxModule,
-    MatRadioModule, MatCardModule, MatInputModule, MatTabsModule,
+    MatRadioModule, MatCardModule, MatInputModule, MatTabsModule, HttpClientModule,
     FormsModule, ReactiveFormsModule,
-    TableModule
+    TableModule , SelectModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
