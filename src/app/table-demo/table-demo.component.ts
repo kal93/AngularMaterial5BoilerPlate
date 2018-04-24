@@ -34,6 +34,8 @@ export class TableDemoComponent {
         { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
         { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
     ];
+
+    bogusData = null;
     onNotifySelected(selectedRows: object[]) {
         console.log(selectedRows);
     }

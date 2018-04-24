@@ -4,6 +4,7 @@ import { MatCheckboxModule, MatSortModule, MatPaginatorModule, MatTableModule } 
 import { TableComponent } from './table.component';
 import { MatIconModule } from '@angular/material';
 import { TablePaginationSettingsModel, TableSettingsModel } from './table-settings.model';
+import { StickyDirective } from './sticky.directive';
 
 export { TableComponent } from './table.component';
 export { TablePaginationSettingsModel, TableSettingsModel } from './table-settings.model';
@@ -11,7 +12,7 @@ export { TablePaginationSettingsModel, TableSettingsModel } from './table-settin
  * @hidden
  */
 @NgModule({
-    declarations: [TableComponent],
+    declarations: [TableComponent, StickyDirective],
     imports: [
         CommonModule,
         MatTableModule,

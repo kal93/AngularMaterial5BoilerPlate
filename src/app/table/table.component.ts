@@ -46,6 +46,10 @@ export class TableComponent implements OnInit, AfterViewInit {
      * @description Local variable to convert JSON data object to MatTableDataSource
      */
     dataSource: MatTableDataSource<{}>;
+
+    bogusDataSource: MatTableDataSource<{}>;
+
+    @Input() bogusData: Object[] = null;
     /**
      * @description ViewChild to get the MatSort directive from DOM
      */
@@ -104,6 +108,8 @@ export class TableComponent implements OnInit, AfterViewInit {
         // Setting selection model
         this.selection = new SelectionModel<{}>(this.allowMultiSelect, []);
         this.dataSource = new MatTableDataSource(this.rowData);
+        this.bogusDataSource = new MatTableDataSource(this.bogusData);
+
     }
     /** Highlights the selected row on row click. */
     highlight(row: any) {

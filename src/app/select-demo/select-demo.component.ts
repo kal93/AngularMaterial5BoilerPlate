@@ -22,6 +22,9 @@ export class SelectDemoComponent implements OnInit {
     hidModel: NgModel;
     country: FormControl;
     hidValidationMessage: string;
+
+    // newItem: SelectSettingsModel = <SelectSettingsModel>{};
+
     constructor(private http:HttpClient) {
 
         this.reactiveForm = new FormGroup({
@@ -30,14 +33,12 @@ export class SelectDemoComponent implements OnInit {
 
         this.country = new FormControl();
 
-      
         // this.sqSelectConfig.dataSource = [
         //     { value: 'Dark', viewValue: 'Dark' },
         //     { value: 'Light', viewValue: 'Light' },
         //     { value: 'Sleek', viewValue: 'Sleek' }
         // ]
 
-       
         // this.sqSelectConfigForTDF.dataSource = [
         //     { value: 'HID 1', viewValue: 'HID 1' },
         //     { value: 'HID 2', viewValue: 'HID 2' },
@@ -49,7 +50,7 @@ export class SelectDemoComponent implements OnInit {
         //     { value: 'HID 8', viewValue: 'HID 8' },
         // ]
 
-   
+
         this.sqSelectConfigForNgModel.dataSource = [
             { value: 'NWL', viewValue: 'NWL' },
             { value: 'GJJ', viewValue: 'GJJ' },
@@ -59,9 +60,9 @@ export class SelectDemoComponent implements OnInit {
             { value: 'HFH', viewValue: 'HFH' },
             { value: 'HHA', viewValue: 'HHA' },
             { value: 'SJP', viewValue: 'SJP' },
-        ]
+        ];
 
-  
+
         this.sqSelectConfigForCountry.dataSource = [
             { value: 'INDIA', viewValue: 'INDIA' },
             { value: 'U.S.A', viewValue: 'U.S.A' },
@@ -69,12 +70,12 @@ export class SelectDemoComponent implements OnInit {
             { value: 'KOREA', viewValue: 'KOREA' },
             { value: 'FRANCE', viewValue: 'FRANCE' },
             { value: 'GERMANY', viewValue: 'GERMANY' }
-        ]
+        ];
     }
 
-      url :string = 'http://localhost:4200/assets/select-mock-data-2.json';
+      url: string = 'http://localhost:4200/assets/select-mock-data-2.json';
 
-      url2 :string = 'http://localhost:4200/assets/select-mock-data.json';
+      url2: string = 'http://localhost:4200/assets/select-mock-data.json';
 
     ngOnInit() {
         this.getData(this.url2)
@@ -90,25 +91,42 @@ export class SelectDemoComponent implements OnInit {
             });
     }
 
-    getData(url:string)  {
+    getData(url: string)  {
       return this.http.get <any> (url);
     }
-    
+
+    // need web-api for this
+    addData(jsonUrl: string, item: SelectSettingsModel) {
+            return this.http.post<any>(jsonUrl, item);
+    }
+
     selectedValue: string[] = ['HID 5'];
     selected: string = 'GJJ';
     ngDoCheck() {
         this.hidValidationMessage = this.hidModel.hasError('invalidValue') ? 'Restricted Option!!' : this.hidModel.hasError('required') ? 'This is Required' : '';
     }
 
-    swtichDataSource($event:MatSlideToggleChange) {
-        if( $event.checked ) {
+    newItem = { 'value': 'newItem', 'viewValue': 'newItem' };
+
+    addOnClick() {
+        // this.addData(this.url2, this.newItem)
+        //     .subscribe((resp) => {
+        //         this.sqSelectConfig.dataSource.push(resp);
+        //         console.log(resp + 'AddonClick');
+        //         this.sqSelectConfig.dataSource = resp;
+        //     });
+        console.log(this.newItem);
+        this.sqSelectConfig.dataSource.push(this.newItem);
+    }
+
+    swtichDataSource($event: MatSlideToggleChange) {
+        if ( $event.checked ) {
           console.log($event.checked);
-      this.getData(this.url).subscribe( (resp:any) => {
+      this.getData(this.url).subscribe( (resp: any) => {
         this.sqSelectConfig.dataSource = resp;
       });
-    }
-      else {
-        console.log($event.checked +' elseeeeeeeeeeeeeee');
+    } else {
+        console.log($event.checked + ' elseeeeeeeeeeeeeee');
         this.getData(this.url2)
             .subscribe( (data) => {
               this.sqSelectConfig.dataSource = data;

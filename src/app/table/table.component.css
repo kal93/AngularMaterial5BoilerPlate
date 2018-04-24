@@ -34,3 +34,30 @@
     font-size: 22px;
 }
 /*Style for icon-padding & size - end*/
+
+.js-is-stuck {
+    color: cornflowerblue;
+    background-color: white 
+  }
+
+.mat-header-row {
+    position: sticky;
+    top: 0;
+    background: white;
+  }
+  
+  .table-container {
+    position: relative;
+    margin-top:50px;
+    }
+    .table-container .mat-table {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    }
+    .table-container .mat-table .mat-header-row {
+    position: absolute;
+    top: -50px;
+    left: 0px;
+    right: 18px;
+    background: #fff;
+    }
