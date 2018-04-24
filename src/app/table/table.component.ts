@@ -108,7 +108,7 @@ export class TableComponent implements OnInit, AfterViewInit {
         // Setting selection model
         this.selection = new SelectionModel<{}>(this.allowMultiSelect, []);
         this.dataSource = new MatTableDataSource(this.rowData);
-        this.bogusDataSource = new MatTableDataSource(this.bogusData);
+        // this.bogusDataSource = new MatTableDataSource(this.bogusData);
 
     }
     /** Highlights the selected row on row click. */

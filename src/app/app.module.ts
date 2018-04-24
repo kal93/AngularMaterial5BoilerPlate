@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule , ReactiveFormsModule  } from '@angular/forms';
-import { RouterModule } from '@angular/Router';
+import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 
 import {  MatButtonModule, MatCheckboxModule , MatRadioModule , MatCardModule,
