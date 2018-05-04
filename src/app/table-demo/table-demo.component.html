@@ -1,8 +1,8 @@
 <sq-table [rowData]="rowData"
-          [bogusData]="bogusData"
           [enableCheckbox]="true"
           [allowMultiSelect]="true"
+          [defaultChecked]="defaultChecked"
           (getSelectedRows)="onNotifySelected($event)"
-          [sqPaginationConfig]="tablePaginationSettings"
-          [sqConfig]="tableSettings">
+          
+          [sqColumnDefinition]="columnDefinition">
 </sq-table>   

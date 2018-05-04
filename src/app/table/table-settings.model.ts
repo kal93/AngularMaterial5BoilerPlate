@@ -1,4 +1,4 @@
-// This class contains properties of table Component
+// This interface contains properties of table pagination settings
 /**
  * @description SqTablePaginationSettingsModel is a custom type which is used in `sq-table` for pagination properties
  */
@@ -9,11 +9,11 @@ export interface TablePaginationSettingsModel {
      */
     enablePagination: boolean;
     /**
-     * @description Number of items to display on a page. By default set to 50.
+     * @description Number of items to display on a page. By default, set to 50.
      */
     pageSize: number;
     /**
-     * @description The set of provided page size options to display to the user.
+     * @description the set of provided page size options to display to the user.
      */
     pageSizeOptions: number[];
     /**
@@ -21,15 +21,30 @@ export interface TablePaginationSettingsModel {
      */
     showFirstLastButtons: boolean;
 }
-
-export interface TableSettingsModel {
+// This interface contains properties of table column settings
+/**
+ * @description SqColumnSettingsModel is a custom type which is used in `sq-table` for column properties
+ */
+export interface ColumnSettingsModel {
     /**
-     * @description Column names for the table
+     * @description Icon for the column header row
      */
-    columnNames?: Array<{
-        icon?: string;
-        name: string,
-        displayName: string;
-        disableSorting?: boolean;
-    }>;
+    icon?: string;
+    /**
+     * @description Specifies the position of the label `before` or `after` icon.
+     */
+    labelPosition?: 'before' | 'after';
+    /**
+     * @description The column name to be used for fetching/binding data
+     */
+    name: string;
+    /**
+     * @description The column name to be displayed
+     */
+    displayName: string;
+    /**
+     * @description Property for disabling sorting
+     */
+    disableSorting?: boolean;
 }
+

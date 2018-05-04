@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource, MatSort, MatTableModule } from '@angular/material';
-import { TablePaginationSettingsModel, TableSettingsModel } from '../table/table-settings.model';
+import { TablePaginationSettingsModel, ColumnSettingsModel } from '../table/table-settings.model';
 
 @Component({
     moduleId: module.id,
     selector: 'app-table-demo',
     templateUrl: './table-demo.component.html',
-    styleUrls: ['./table-demo.component.css']
+    styleUrls: ['./table-demo.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
-export class TableDemoComponent {
-    tableSettings: TableSettingsModel = <TableSettingsModel>{};
+export class TableDemoComponent implements OnInit {
+    columnDefinition: ColumnSettingsModel[] = [];
     tablePaginationSettings: TablePaginationSettingsModel = <TablePaginationSettingsModel>{};
     rowData = [
         { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
@@ -35,7 +36,8 @@ export class TableDemoComponent {
         { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
     ];
 
-    bogusData = null;
+    defaultChecked: any;
+
     onNotifySelected(selectedRows: object[]) {
         console.log(selectedRows);
     }
@@ -45,7 +47,7 @@ export class TableDemoComponent {
         this.tablePaginationSettings.pageSize = 5;
         this.tablePaginationSettings.pageSizeOptions = [5, 10, 15];
         this.tablePaginationSettings.showFirstLastButtons = true;
-        this.tableSettings.columnNames = [
+        this.columnDefinition = [
             {
                 'name': 'position',
                 'displayName': 'No',
@@ -54,22 +56,29 @@ export class TableDemoComponent {
             {
                 'name': 'name',
                 'displayName': 'Name',
-                'disableSorting': true,
-                'icon' : 'face'
-
+                'disableSorting': false,
+                'icon': 'face',
+                'labelPosition': 'after'
             },
             {
                 'name': 'weight',
                 'displayName': 'Weight',
-                'disableSorting': true,
-                'icon' : 'home'
+                'disableSorting': false,
+                'icon': 'home',
             },
             {
                 'name': 'symbol',
                 'displayName': 'Symbol',
                 'disableSorting': false,
-                'icon': 'face'
+                'icon': 'face',
+                'labelPosition': 'before'
             },
         ];
+    }
+
+    ngOnInit() {
+        let subset1 = this.rowData.slice(0, 2);
+        let subset2 = this.rowData.slice(4, 8);
+        this.defaultChecked = subset1.concat(subset2);
     }
 }
